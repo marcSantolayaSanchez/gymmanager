@@ -1,59 +1,274 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🏋️ GymManager
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<div align="center">
 
-## About Laravel
+**Sistema de gestión integral para gimnasios**  
+Construido con Laravel 12 · MySQL · Blade · PHP 8.3
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+[![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
+[![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
+[![License](https://img.shields.io/badge/License-MIT-C8FF00?style=for-the-badge)](LICENSE)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+</div>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## ¿Qué es GymManager?
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+GymManager es una aplicación web full-stack diseñada para la **gestión completa de un gimnasio**. Permite a los administradores controlar clientes, entrenadores, rutinas y membresías desde un panel centralizado con un sistema de roles y permisos granular.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Desarrollado como **proyecto de portfolio**, demuestra el uso profesional de Laravel con patrones reales de arquitectura: Eloquent ORM con relaciones complejas, autorización mediante Policies, autenticación con Sanctum y una API REST documentada.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## ✨ Funcionalidades
 
-### Premium Partners
+### 👥 Gestión de Clientes
+- Registro completo con datos físicos (peso, altura, fecha de nacimiento)
+- Asignación de membresías con cálculo automático de fechas de vencimiento
+- Sistema de estados: **Activa · Por vencer · Expirada**
+- Historial de rutinas por cliente
+- Búsqueda y filtrado en tiempo real
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 🏋️ Gestión de Entrenadores
+- Perfiles con especialidad y biografía
+- Vista de clientes y rutinas asignadas
+- Solo el administrador puede crear o eliminar entrenadores
 
-## Contributing
+### 📋 Rutinas de Entrenamiento
+- Creación y asignación de rutinas a clientes específicos
+- Estados: **Pendiente · Completada · Cancelada**
+- Filtrado por estado y entrenador
+- Los entrenadores solo ven y gestionan sus propias rutinas
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 💳 Membresías
+- Tres planes configurables: Básica, Premium, VIP
+- Precios, duración y descripción editables
+- Gráfico de distribución de clientes por plan
+- Renovación de membresía desde el perfil del cliente
 
-## Code of Conduct
+### 📊 Dashboard con métricas en tiempo real
+- Total de clientes activos
+- Ingresos mensuales recurrentes
+- Alertas de membresías próximas a vencer
+- Últimas rutinas y clientes registrados
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 🔐 Sistema de Roles
+| Rol | Permisos |
+|---|---|
+| **Admin** | Acceso total. Crea y elimina entrenadores y clientes. |
+| **Entrenador** | Ve y gestiona sus propios clientes y rutinas. |
+| **Cliente** | Ve su propio perfil, membresía y rutinas. |
 
-## Security Vulnerabilities
+### 📧 Notificaciones automáticas
+- Email automático cuando una membresía está próxima a vencer
+- Comando Artisan programable en el scheduler diario
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 🛠 Stack Tecnológico
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+| Capa | Tecnología |
+|---|---|
+| Backend | Laravel 12, PHP 8.3 |
+| Base de datos | MySQL 8.0 |
+| Autenticación | Laravel Sanctum |
+| Frontend | Blade Templates, CSS puro |
+| Tipografía | Syne + DM Sans (Google Fonts) |
+| API | REST con tokens Bearer |
+| Tests | PHPUnit / Feature Tests |
+
+---
+
+## 🔗 Relaciones Eloquent implementadas
+
+```
+User ──────── hasOne ──────► Client
+User ──────── hasOne ──────► Trainer
+Client ─────── belongsTo ──► Membership
+Membership ─── hasMany ────► Client
+Trainer ─────── hasMany ───► Workout
+Client ──────── hasMany ───► Workout
+Trainer ── hasManyThrough ─► Client (via Workouts)
+```
+
+Todas las consultas usan **eager loading** para evitar el problema N+1.
+
+---
+
+## 🚀 Instalación local
+
+### Requisitos
+- PHP 8.2+
+- Composer
+- MySQL 8.0+
+- Laragon / XAMPP / Laravel Herd
+
+### Pasos
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/TU-USUARIO/gymmanager.git
+cd gymmanager
+
+# 2. Instalar dependencias
+composer install
+
+# 3. Configurar entorno
+cp .env.example .env
+php artisan key:generate
+
+# 4. Configurar base de datos en .env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=gymmanager
+DB_USERNAME=root
+DB_PASSWORD=
+
+# 5. Ejecutar migraciones y datos de prueba
+php artisan migrate:fresh --seed
+
+# 6. Iniciar servidor
+php artisan serve
+```
+
+Abre `http://127.0.0.1:8000` en tu navegador.
+
+---
+
+## 🔑 Credenciales de prueba
+
+| Rol | Email | Contraseña |
+|---|---|---|
+| Administrador | admin@gymmanager.com | password |
+| Entrenador | carlos@gymmanager.com | password |
+| Cliente | sara@example.com | password |
+
+---
+
+## 📡 API REST
+
+La aplicación incluye una API REST completa accesible bajo `/api/`.
+
+### Autenticación
+
+```http
+POST /api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@gymmanager.com",
+  "password": "password"
+}
+```
+
+```json
+{
+  "token": "1|abc123...",
+  "user": {
+    "id": 1,
+    "name": "Administrador",
+    "role": "admin"
+  }
+}
+```
+
+Incluye el token en todas las peticiones:
+```
+Authorization: Bearer {token}
+```
+
+### Endpoints principales
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| `POST` | `/api/auth/login` | Login |
+| `GET` | `/api/auth/me` | Usuario autenticado |
+| `GET` | `/api/dashboard` | Métricas generales |
+| `GET/POST` | `/api/clients` | Listar / Crear clientes |
+| `GET/PUT/DELETE` | `/api/clients/{id}` | Ver / Editar / Eliminar |
+| `GET/POST` | `/api/trainers` | Listar / Crear entrenadores |
+| `GET/POST` | `/api/workouts` | Listar / Crear rutinas |
+| `GET/POST` | `/api/memberships` | Listar / Crear membresías |
+
+---
+
+## 🧪 Tests
+
+```bash
+# Ejecutar todos los tests
+php artisan test
+
+# Solo tests de la API de clientes
+php artisan test --filter=ClientApiTest
+```
+
+Los tests cubren permisos por rol, creación de recursos y validación de estados de membresía.
+
+---
+
+## 📧 Notificaciones de membresía
+
+```bash
+# Notifica a clientes cuya membresía vence en los próximos 7 días
+php artisan gym:notify-expiring
+
+# Cambiar el umbral de días
+php artisan gym:notify-expiring --days=14
+```
+
+Para automatizarlo, añade esto en `app/Console/Kernel.php`:
+```php
+$schedule->command('gym:notify-expiring')->dailyAt('09:00');
+```
+
+---
+
+## 📁 Estructura del proyecto
+
+```
+gymmanager/
+├── app/
+│   ├── Console/Commands/         # NotifyExpiringMemberships
+│   ├── Http/Controllers/         # Controladores web
+│   │   └── Api/                  # Controladores API REST
+│   ├── Models/                   # User, Client, Trainer, Membership, Workout
+│   ├── Notifications/            # MembershipExpiringSoon
+│   └── Policies/                 # ClientPolicy, WorkoutPolicy
+├── database/
+│   ├── migrations/               # 5 migraciones ordenadas
+│   └── seeders/                  # Datos realistas de prueba
+├── resources/views/              # Vistas Blade
+│   ├── layouts/                  # Layout principal con sidebar
+│   ├── auth/                     # Login
+│   ├── dashboard/
+│   ├── clients/
+│   ├── trainers/
+│   ├── workouts/
+│   └── memberships/
+└── routes/
+    ├── web.php                   # Rutas de la aplicación web
+    └── api.php                   # Rutas de la API REST
+```
+
+---
+
+## 🎯 Persona objetivo
+
+Este proyecto está orientado a demostrar competencias en **desarrollo backend con Laravel** a:
+
+- **Recruiters técnicos** que buscan desarrolladores PHP/Laravel Junior o Mid
+- **CTOs de startups** que necesitan alguien capaz de construir sistemas CRUD completos con autenticación y roles
+- **Equipos de producto** que valoran código limpio, estructurado y testeable
+
+---
+
+## 👤 Autor
+
+Hecho con 💪 por **Marc Santolaya Sánchez**
+
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/marcSantolayaSanchez)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/marc-santolaya-sánchez-a80ab2297)
+[![Portfolio](https://img.shields.io/badge/Portfolio-C8FF00?style=for-the-badge&logo=googlechrome&logoColor=black)](https://tu-portfolio.com)
